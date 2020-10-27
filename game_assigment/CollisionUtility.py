@@ -190,14 +190,9 @@ class CollisionUtility:
         gameobject_rightmost_point = gameobject.rect.topright[0]
         gameobject_bottommost_point = gameobject.rect.bottomleft[1]
         # Check left side of the window
-        if (gameobject_rightmost_point < 0):
-            return True
         # Check right side of the window
-        elif (gameobject_leftmost_point > screen_dimensions[0]):
-            return True
         # Check top side of the window 
         # there is no need to check bottom side since there will be collision with surface
-        elif (gameobject_bottommost_point < 0):
-            return True
-        else:
-            return False
+        return gameobject_rightmost_point < 0 or gameobject_leftmost_point > screen_dimensions[0] or gameobject_bottommost_point < 0
+        
+        
